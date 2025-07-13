@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+
+
+.faq-container {
+  max-width: 850px;
+  margin: 40px auto;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.faq-container h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #4A4A4A;
+  font-family: 'Cantata One', serif;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: left;
+  user-select: none;
+}
+
+.faq-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgb(0 123 255 / 0.25);
+}
+
+.faq-question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-icon {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #007BFF;
+}
+
+.faq-answer {
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+  font-size: 1.15rem;
+}

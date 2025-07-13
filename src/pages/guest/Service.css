@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+.service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+.service-container h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #4A4A4A;
+    font-family: 'Cantata One', serif;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 70px;
+    max-width: 1050px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service {
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0f2f7;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.service-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+}
+
+
+.service-content h1 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+
+.service-content p {
+  opacity: 0;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: white;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service:hover .service-content p {
+  opacity: 1;
+}
+
+.service:hover .service-content {
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+}
+
+.service:hover .service-content h1 {
+  position: static;
+  transform: none;
+  background: none;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.service:hover .service-content p {
+    opacity: 1;
+}

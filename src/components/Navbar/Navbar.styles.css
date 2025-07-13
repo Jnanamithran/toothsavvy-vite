@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding-top: 25px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+}
+
+.logo-container {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    color: #00BCD4;
+    text-decoration: none;
+}
+
+.nav-links-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    font-family: 'Mulish', sans-serif;
+}
+
+.nav-link.active {
+    color: brown;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #00BCD4;
+}
+
+.hero-buttons a {
+    font-family: 'Cantata One', serif;
+    text-decoration: none;
+    padding: 12px 24px;
+    margin-right: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #00BCD4;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0097a7;
+    color: #fff;
+}
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  font-size: 1.6rem;
+  cursor: pointer;
+  background: #f1f1f1;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background 0.3s;
+}
+
+.profile-icon:hover {
+  background: #e0e0e0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}

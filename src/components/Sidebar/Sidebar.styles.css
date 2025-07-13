@@ -1,0 +1,70 @@
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  background-color: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Logo (top) */
+.logo {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Sidebar links section (vertically centered) */
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex-grow: 1;
+  justify-content: center;   /* 🟢 This centers the icons vertically */
+  width: 100%;
+}
+
+/* Individual icon links */
+.sidebar-icon {
+  font-size: 1.6rem;
+  color: #ccc;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.sidebar-icon:hover {
+  color: #00bcd4;
+  transform: scale(1.2);
+}
+
+.sidebar-icon.active {
+  color: #00bcd4;
+}
+
+/* Logout button fixed at bottom */
+.logout-button {
+  font-size: 1.6rem;
+  color: #ff4d4d;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.logout-button:hover {
+  transform: scale(1.2);
+}

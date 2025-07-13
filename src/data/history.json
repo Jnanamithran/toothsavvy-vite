@@ -1,0 +1,38 @@
+[
+  {
+    "historyId": "h1",
+    "patientId": "p1",
+    "treatment": "Tooth Extraction",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-04-10",
+    "notes": "Wisdom tooth, lower right",
+    "status": "completed"
+  },
+  {
+    "historyId": "h2",
+    "patientId": "p2",
+    "treatment": "Dental Cleaning",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-05-20",
+    "notes": "Tartar buildup",
+    "status": "completed"
+  },
+  {
+    "historyId": "h3",
+    "patientId": "p3",
+    "treatment": "Filling",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-06-01",
+    "notes": "Cavity on upper left molar",
+    "status": "completed"
+  },
+  {
+    "historyId": "h4",
+    "patientId": "p4",
+    "treatment": "X-Ray and Consultation",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-06-15",
+    "notes": "Suspected root infection",
+    "status": "completed"
+  }
+]

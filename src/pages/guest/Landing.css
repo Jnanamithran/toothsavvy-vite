@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  gap: 120px;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #fdfdfd;
+}
+
+.left img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.right {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-family: 'Cantata One', serif;
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.smile {
+  color: #00BCD4;
+}
+
+.hero-sub {
+  font-family: 'Cantata One', serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-buttons a {
+  font-family: 'Cantata One', serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.btn-outline {
+    background: transparent;
+    color: black;
+    outline: 1px solid #00BCD4;
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "appointmentId": "a1",
+    "patientId": "p1",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-07-15",
+    "time": "10:30 AM",
+    "type": "Root Canal",
+    "duration": "1 hour",
+    "status": "upcoming",
+    "notes": "Severe pain, molar tooth"
+  },
+  {
+    "appointmentId": "a2",
+    "patientId": "p2",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-06-28",
+    "time": "11:00 AM",
+    "type": "Teeth Whitening",
+    "duration": "45 minutes",
+    "status": "completed",
+    "notes": "Cosmetic treatment"
+  },
+  {
+    "appointmentId": "a3",
+    "patientId": "p3",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-07-05",
+    "time": "09:00 AM",
+    "type": "Braces Adjustment",
+    "duration": "30 minutes",
+    "status": "completed",
+    "notes": "Monthly checkup"
+  },
+  {
+    "appointmentId": "a4",
+    "patientId": "p4",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-07-12",
+    "time": "02:00 PM",
+    "type": "Dental Checkup",
+    "duration": "30 minutes",
+    "status": "upcoming",
+    "notes": "Routine annual exam"
+  }
+]

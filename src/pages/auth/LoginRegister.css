@@ -1,0 +1,265 @@
+/* LoginRegister.css */
+* {
+  box-sizing: border-box;
+}
+
+.login-register-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Left side - Image with overlay */
+.image-side {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(168, 85, 247, 0.7));
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Color blend overlay */
+.image-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(168, 85, 247, 0.7));
+  z-index: 1;
+}
+
+/* Overlay content on image */
+.image-side::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+  white-space: pre-line;
+}
+
+/* Style the heading part */
+.image-side::after {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Create the heading effect using a pseudo-element */
+.image-side {
+  position: relative;
+}
+
+.image-side .overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+}
+
+.image-side .overlay-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.image-side .overlay-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Right side - Form */
+.form-side {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background: #ffffff;
+  position: relative;
+}
+
+.form-side h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.form-side .form-container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f3f4f6;
+}
+
+.form-side form {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.form-side input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #374151;
+}
+
+.form-side input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-side input::placeholder {
+  color: #9ca3af;
+}
+
+.form-side button {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.form-side button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.form-side button:active {
+  transform: translateY(0);
+}
+
+/* Error message */
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: #fef2f2;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #fecaca;
+}
+
+/* Bottom link */
+.form-side .form-container p {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.form-side .form-container p a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.form-side .form-container p a:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-register-container {
+    flex-direction: column;
+  }
+  
+  .image-side {
+    height: 40vh;
+    order: 2;
+  }
+  
+  .image-side .overlay-content h1 {
+    font-size: 2rem;
+  }
+  
+  .image-side .overlay-content p {
+    font-size: 1rem;
+  }
+  
+  .form-side {
+    padding: 2rem 1.5rem;
+    order: 1;
+  }
+  
+  .form-side h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-side {
+    height: 30vh;
+  }
+  
+  .image-side .overlay-content {
+    padding: 1rem;
+  }
+  
+  .image-side .overlay-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .image-side .overlay-content p {
+    font-size: 0.9rem;
+  }
+  
+  .form-side {
+    padding: 1.5rem 1rem;
+  }
+}

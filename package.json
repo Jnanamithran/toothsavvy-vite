@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://jnanamithranm.github.io/toothsavvy-vite/",
+  "homepage": "https://jnanamithran.github.io/toothsavvy-vite/",
   "dependencies": {
     "framer-motion": "^12.18.1",
     "react": "^19.1.0",

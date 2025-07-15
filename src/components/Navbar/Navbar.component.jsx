@@ -21,6 +21,15 @@ const Navbar = () => {
     navigate('/'); // Redirect to home
   };
 
+  const handleAppointmentClick = () => {
+    if (isLoggedIn) {
+      navigate('/book-appointment');
+    } else {
+      alert('Please sign in to book an appointment.');
+      navigate('/signin');
+    }
+  };
+
   return (
     <>
       <nav className="navigation">
@@ -37,9 +46,10 @@ const Navbar = () => {
             Our Services
           </ScrollLink>
 
-          <ScrollLink to="/book-appointment" smooth={true} duration={500} offset={-80} className="nav-link">
+          {/* Updated Appointment Link */}
+          <div className="nav-link" onClick={handleAppointmentClick}>
             Appointment
-          </ScrollLink>
+          </div>
 
           {isLoggedIn ? (
             <div className="profile-dropdown">

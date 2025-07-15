@@ -3,14 +3,16 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import patients from '../../data/patients.json';
 import './LoginRegister.css';
 
+// 👇 Add these imports
+import signinImage from '../../assets/signin.jpg';
+import signupImage from '../../assets/signup.jpg';
+
 const LoginRegister = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Check if current path is login or signup
   const isLogin = location.pathname === '/signin';
 
-  // Form data state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +21,6 @@ const LoginRegister = () => {
 
   const [error, setError] = useState('');
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -28,13 +29,11 @@ const LoginRegister = () => {
     }));
   };
 
-  // Handle login or signup
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 
     if (isLogin) {
-      // Login logic
       const existingPatient = patients.find(
         (p) => p.email === formData.email && p.password === formData.password
       );
@@ -45,7 +44,6 @@ const LoginRegister = () => {
         setError('Invalid email or password');
       }
     } else {
-      // Signup logic
       const alreadyExists = patients.find((p) => p.email === formData.email);
       if (alreadyExists) {
         setError('Email already registered');
@@ -55,7 +53,7 @@ const LoginRegister = () => {
           ...formData,
         };
         localStorage.setItem('loggedInPatientId', newPatient.id);
-        localStorage.setItem('newPatient', JSON.stringify(newPatient)); // optional: store temporarily
+        localStorage.setItem('newPatient', JSON.stringify(newPatient));
         navigate('/patient/dashboard');
       }
     }
@@ -65,7 +63,7 @@ const LoginRegister = () => {
     <div className="login-register-container">
       <div className="image-side">
         <img
-          src={isLogin ? '/src/assets/signin.jpg' : '/src/assets/signup.jpg'}
+          src={isLogin ? signinImage : signupImage}
           alt={isLogin ? 'Login' : 'Register'}
         />
         <div className="overlay-content">

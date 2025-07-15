@@ -10,16 +10,16 @@
   },
   {
     "historyId": "h2",
-    "patientId": "p2",
+    "patientId": "p1",
     "treatment": "Dental Cleaning",
     "doctor": "Dr. B. Patel",
     "date": "2025-05-20",
-    "notes": "Tartar buildup",
+    "notes": "Tartar buildup around lower gums",
     "status": "completed"
   },
   {
     "historyId": "h3",
-    "patientId": "p3",
+    "patientId": "p1",
     "treatment": "Filling",
     "doctor": "Dr. C. Menon",
     "date": "2025-06-01",
@@ -28,11 +28,104 @@
   },
   {
     "historyId": "h4",
+    "patientId": "p1",
+    "treatment": "Root Canal",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-07-01",
+    "notes": "Deep decay, lower right second molar",
+    "status": "completed"
+  },
+  {
+    "historyId": "h5",
+    "patientId": "p1",
+    "treatment": "X-Ray and Consultation",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-07-10",
+    "notes": "Suspected root infection, prescribed antibiotics",
+    "status": "completed"
+  },
+
+  {
+    "historyId": "h6",
+    "patientId": "p2",
+    "treatment": "Dental Cleaning",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-03-12",
+    "notes": "Mild plaque removal",
+    "status": "completed"
+  },
+  {
+    "historyId": "h7",
+    "patientId": "p2",
+    "treatment": "Crown Fitting",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-05-01",
+    "notes": "Post-root canal crown",
+    "status": "completed"
+  },
+  {
+    "historyId": "h8",
+    "patientId": "p2",
+    "treatment": "Routine Checkup",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-06-15",
+    "notes": "No issues found",
+    "status": "completed"
+  },
+
+  {
+    "historyId": "h9",
+    "patientId": "p3",
+    "treatment": "Filling",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-01-22",
+    "notes": "Silver amalgam filling for rear molar",
+    "status": "completed"
+  },
+  {
+    "historyId": "h10",
+    "patientId": "p3",
+    "treatment": "Tooth Whitening",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-03-18",
+    "notes": "Surface stains removed successfully",
+    "status": "completed"
+  },
+  {
+    "historyId": "h11",
+    "patientId": "p3",
+    "treatment": "Braces Checkup",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-07-05",
+    "notes": "Tightened upper row braces",
+    "status": "completed"
+  },
+
+  {
+    "historyId": "h12",
     "patientId": "p4",
     "treatment": "X-Ray and Consultation",
     "doctor": "Dr. A. Kumar",
     "date": "2025-06-15",
     "notes": "Suspected root infection",
+    "status": "completed"
+  },
+  {
+    "historyId": "h13",
+    "patientId": "p4",
+    "treatment": "Scaling and Polishing",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-07-01",
+    "notes": "Deep clean on lower incisors",
+    "status": "completed"
+  },
+  {
+    "historyId": "h14",
+    "patientId": "p4",
+    "treatment": "Tooth Extraction",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-07-13",
+    "notes": "Severe decay on third molar",
     "status": "completed"
   }
 ]

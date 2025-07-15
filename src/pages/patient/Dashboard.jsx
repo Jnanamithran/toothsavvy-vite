@@ -12,7 +12,7 @@ import './Dashboard.css';
 
 const PatientDashboard = () => {
   const navigate = useNavigate();
-  const { setIsRescheduling } = useReschedule();
+  const { setRescheduleAppointment } = useReschedule();
 
   const [currentPatient, setCurrentPatient] = useState(null);
   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
@@ -40,8 +40,8 @@ const PatientDashboard = () => {
 
   const handleNavigate = (path) => navigate(path);
 
-  const handleRescheduleClick = () => {
-    setIsRescheduling(true);
+  const handleRescheduleClick = (appointment) => {
+    setRescheduleAppointment(appointment);
     navigate('/reschedule');
   };
 
@@ -65,7 +65,12 @@ const PatientDashboard = () => {
               <div key={app.appointmentId} className="card">
                 <p><strong>{app.type}</strong> with {app.doctor}</p>
                 <p>{app.date} @ {app.time}</p>
-                <button className="reschedule-button" onClick={handleRescheduleClick}>Reschedule</button>
+                <button
+                  className="reschedule-button"
+                  onClick={() => handleRescheduleClick(app)}
+                >
+                  Reschedule
+                </button>
               </div>
             ))
           ) : (

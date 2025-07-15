@@ -38,6 +38,7 @@
     padding: 10px 0;
     transition: color 0.3s ease;
     font-family: 'Mulish', sans-serif;
+    cursor: pointer;
 }
 
 .nav-link.active {

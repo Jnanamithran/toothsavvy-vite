@@ -1,32 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useReschedule } from '../../context/RescheduleContext';
+import appointments from '../../data/appointments.json';
+import './RescheduleModal.css';
 
-const RescheduleModal = ({ appointment }) => {
-  if (!appointment) {
+const RescheduleModal = () => {
+  const navigate = useNavigate();
+  const { rescheduleAppointment } = useReschedule();
+
+  const [newDate, setNewDate] = useState('');
+  const [newTime, setNewTime] = useState('');
+
+  if (!rescheduleAppointment) {
     return (
-      <div className="modal">
-        <p>No appointment selected for rescheduling.</p>
+      <div className="modal full-screen">
+        <h2>No appointment selected for rescheduling.</h2>
       </div>
     );
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Appointment rescheduled!');
-    // Add logic to update appointment data here
+
+    // Clone appointments and update selected one
+    const updatedAppointments = appointments.map(appt => {
+      if (appt.appointmentId === rescheduleAppointment.appointmentId) {
+        return {
+          ...appt,
+          date: newDate,
+          time: newTime
+        };
+      }
+      return appt;
+    });
+
+    localStorage.setItem('appointments', JSON.stringify(updatedAppointments));
+    alert('Appointment rescheduled successfully!');
+    navigate('/patient-dashboard');
   };
 
   return (
-    <div className="modal">
+    <div className="modal full-screen">
       <h2>Reschedule Appointment</h2>
-      <p><strong>Current:</strong> {appointment.date} @ {appointment.time}</p>
+      <p><strong>Current:</strong> {rescheduleAppointment.date} @ {rescheduleAppointment.time}</p>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>New Date:</label><br />
-          <input type="date" required />
+        <div className="form-group">
+          <label>New Date:</label>
+          <input type="date" required value={newDate} onChange={(e) => setNewDate(e.target.value)} />
         </div>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>New Time:</label><br />
-          <input type="time" required />
+        <div className="form-group">
+          <label>New Time:</label>
+          <input type="time" required value={newTime} onChange={(e) => setNewTime(e.target.value)} />
         </div>
         <button type="submit">Confirm Reschedule</button>
       </form>

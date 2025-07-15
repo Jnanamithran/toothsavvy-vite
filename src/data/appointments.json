@@ -11,6 +11,29 @@
     "notes": "Severe pain, molar tooth"
   },
   {
+    "appointmentId": "a5",
+    "patientId": "p1",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-06-10",
+    "time": "11:00 AM",
+    "type": "Cleaning",
+    "duration": "30 minutes",
+    "status": "completed",
+    "notes": "Routine cleaning"
+  },
+  {
+    "appointmentId": "a6",
+    "patientId": "p1",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-08-10",
+    "time": "01:00 PM",
+    "type": "Follow-up",
+    "duration": "30 minutes",
+    "status": "upcoming",
+    "notes": "Check root canal healing"
+  },
+
+  {
     "appointmentId": "a2",
     "patientId": "p2",
     "doctor": "Dr. B. Patel",
@@ -21,6 +44,29 @@
     "status": "completed",
     "notes": "Cosmetic treatment"
   },
+  {
+    "appointmentId": "a7",
+    "patientId": "p2",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-07-20",
+    "time": "03:00 PM",
+    "type": "Dental Filling",
+    "duration": "30 minutes",
+    "status": "upcoming",
+    "notes": "Minor cavity"
+  },
+  {
+    "appointmentId": "a8",
+    "patientId": "p2",
+    "doctor": "Dr. B. Patel",
+    "date": "2025-06-01",
+    "time": "10:00 AM",
+    "type": "Checkup",
+    "duration": "20 minutes",
+    "status": "completed",
+    "notes": "Annual dental check"
+  },
+
   {
     "appointmentId": "a3",
     "patientId": "p3",
@@ -33,6 +79,29 @@
     "notes": "Monthly checkup"
   },
   {
+    "appointmentId": "a9",
+    "patientId": "p3",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-07-18",
+    "time": "04:00 PM",
+    "type": "Ortho Scan",
+    "duration": "40 minutes",
+    "status": "upcoming",
+    "notes": "Scan for retainer fit"
+  },
+  {
+    "appointmentId": "a10",
+    "patientId": "p3",
+    "doctor": "Dr. C. Menon",
+    "date": "2025-06-10",
+    "time": "02:00 PM",
+    "type": "Consultation",
+    "duration": "20 minutes",
+    "status": "completed",
+    "notes": "Discussion on jaw alignment"
+  },
+
+  {
     "appointmentId": "a4",
     "patientId": "p4",
     "doctor": "Dr. A. Kumar",
@@ -42,5 +111,27 @@
     "duration": "30 minutes",
     "status": "upcoming",
     "notes": "Routine annual exam"
+  },
+  {
+    "appointmentId": "a11",
+    "patientId": "p4",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-05-10",
+    "time": "12:30 PM",
+    "type": "Tooth Extraction",
+    "duration": "1 hour",
+    "status": "completed",
+    "notes": "Upper left wisdom tooth"
+  },
+  {
+    "appointmentId": "a12",
+    "patientId": "p4",
+    "doctor": "Dr. A. Kumar",
+    "date": "2025-08-01",
+    "time": "09:30 AM",
+    "type": "Post-op Check",
+    "duration": "20 minutes",
+    "status": "upcoming",
+    "notes": "Follow-up after extraction"
   }
 ]

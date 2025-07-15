@@ -1,4 +1,5 @@
 /* Dashboard.css */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -54,11 +55,26 @@ body {
   gap: 2rem;
 }
 
+/* 🎯 This section now scrolls if content > 3 cards */
 .dashboard-section {
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  max-height: 400px;              /* limit height */
+  overflow-y: auto;               /* scroll only when needed */
+}
+
+/* Optional: Scrollbar customization */
+.dashboard-section::-webkit-scrollbar {
+  width: 6px;
+}
+.dashboard-section::-webkit-scrollbar-thumb {
+  background-color: #c5cae9;
+  border-radius: 8px;
+}
+.dashboard-section::-webkit-scrollbar-track {
+  background-color: #e8eaf6;
 }
 
 .dashboard-section h2 {
@@ -94,6 +110,7 @@ body {
   color: #888;
 }
 
+/* Responsive Grid */
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -104,6 +121,7 @@ body {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
+
   .dashboard-actions button {
     display: block;
     margin: 1rem auto;

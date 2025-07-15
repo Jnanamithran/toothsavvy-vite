@@ -37,7 +37,7 @@ const Navbar = () => {
             Our Services
           </ScrollLink>
 
-          <ScrollLink to="appointment" smooth={true} duration={500} offset={-80} className="nav-link">
+          <ScrollLink to="/book-appointment" smooth={true} duration={500} offset={-80} className="nav-link">
             Appointment
           </ScrollLink>
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                   <RouterLink to="/profile" className="dropdown-item" onClick={() => setShowDropdown(false)}>
                     Profile
                   </RouterLink>
-                  <RouterLink to="/appointment-history" className="dropdown-item" onClick={() => setShowDropdown(false)}>
+                  <RouterLink to="/book-appointment" className="dropdown-item" onClick={() => setShowDropdown(false)}>
                     Appointments
                   </RouterLink>
                   <div className="dropdown-item" onClick={handleLogout}>

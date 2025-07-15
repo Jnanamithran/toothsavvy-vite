@@ -1,127 +1,111 @@
-
-
+/* Dashboard.css */
 body {
   margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(to right, #e0eafc, #cfdef3); /* light blue full screen */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
 }
 
-
-/* Dashboard Wrapper */
 .patient-dashboard {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 3rem 4rem;
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-/* Header Section */
 .dashboard-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .dashboard-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
   color: #1a237e;
-  margin-bottom: 0.5rem;
 }
 
 .dashboard-header p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #444;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-/* Action Buttons */
 .dashboard-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .dashboard-actions button {
-  padding: 0.9rem 2rem;
+  margin: 0 1rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  background: #3949ab;
-  color: #fff;
+  background-color: #3949ab;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .dashboard-actions button:hover {
-  background: #303f9f;
-  transform: translateY(-2px);
+  background-color: #303f9f;
 }
 
-/* Sections */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
 .dashboard-section {
-  background: #ffffff;
+  background-color: white;
+  padding: 1.5rem;
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .dashboard-section h2 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #283593;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Cards */
 .card {
-  background-color: #f9f9ff;
-  border-left: 5px solid #5c6bc0;
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 1.2rem;
-  border-radius: 10px;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #f4f6fc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #5c6bc0;
+  border-radius: 8px;
 }
 
-.card:hover {
-  transform: translateY(-3px);
+.reschedule-button {
+  background-color: #ffb300;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.card p {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #444;
+.reschedule-button:hover {
+  background-color: #ffa000;
 }
 
-/* Responsive Layout */
+.note-date {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-  .patient-dashboard {
-    padding: 2rem;
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
-
-  .dashboard-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .dashboard-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .dashboard-actions button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .dashboard-section h2 {
-    font-size: 1.3rem;
+    display: block;
+    margin: 1rem auto;
   }
 }

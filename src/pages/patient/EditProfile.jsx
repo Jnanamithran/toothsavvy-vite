@@ -17,6 +17,7 @@ const EditProfile = () => {
     confirmNewPassword: ''
   });
 
+  // Load stored user data
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (storedUser) {
@@ -60,6 +61,7 @@ const EditProfile = () => {
       alert('Email and Confirm Email do not match!');
       return;
     }
+
     if (
       passwordFields.newPassword &&
       passwordFields.newPassword !== passwordFields.confirmNewPassword
@@ -67,8 +69,10 @@ const EditProfile = () => {
       alert('New Password and Confirm New Password do not match!');
       return;
     }
+
     const updatedUser = { ...formData };
     localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
+
     alert('Profile updated successfully!');
     setIsEditing(false);
     setPasswordFields({ newPassword: '', confirmNewPassword: '' });
@@ -99,27 +103,22 @@ const EditProfile = () => {
       <div className="profile-header">
         <h2>Patient Profile</h2>
         {!isEditing ? (
-          <Button onClick={handleEdit} className="btn-edit">
-            Edit Profile
-          </Button>
+          <Button onClick={handleEdit} className="btn-edit">Edit Profile</Button>
         ) : (
           <div className="action-buttons">
-            <Button onClick={handleCancel} className="btn-cancel">
-              Cancel
-            </Button>
-            <Button onClick={handleSubmit} className="btn-save">
-              Save Changes
-            </Button>
+            <Button onClick={handleCancel} className="btn-cancel">Cancel</Button>
+            <Button onClick={handleSubmit} className="btn-save">Save Changes</Button>
           </div>
         )}
       </div>
 
       <div className="profile-details">
         <div className="avatar-section">
-          <img
-            src={formData.profileImage || 'https://via.placeholder.com/150'}
-            alt="Profile"
+          <div
             className="profile-avatar"
+            style={{
+              backgroundImage: `url(${formData.profileImage || ''})`
+            }}
           />
           {isEditing && (
             <label className="btn-upload">

@@ -1,0 +1,77 @@
+[
+  {
+    "notificationId": "n1",
+    "patientId": "p1",
+    "message": "🦷 Your cleaning appointment is tomorrow at 10:00 AM.",
+    "date": "2025-07-16"
+  },
+  {
+    "notificationId": "n2",
+    "patientId": "p1",
+    "message": "💡 Remember to floss daily for healthier gums!",
+    "date": "2025-07-15"
+  },
+  {
+    "notificationId": "n3",
+    "patientId": "p1",
+    "message": "✅ Your last treatment summary has been updated.",
+    "date": "2025-07-14"
+  },
+
+  {
+    "notificationId": "n4",
+    "patientId": "p2",
+    "message": "📅 You have an appointment with Dr. Menon on 18th July.",
+    "date": "2025-07-16"
+  },
+  {
+    "notificationId": "n5",
+    "patientId": "p2",
+    "message": "🦷 New oral care tips added to your dashboard.",
+    "date": "2025-07-15"
+  },
+  {
+    "notificationId": "n6",
+    "patientId": "p2",
+    "message": "⚠️ Please update your profile details for better service.",
+    "date": "2025-07-14"
+  },
+
+  {
+    "notificationId": "n7",
+    "patientId": "p3",
+    "message": "🦷 Your next dental check-up is scheduled for 20th July.",
+    "date": "2025-07-16"
+  },
+  {
+    "notificationId": "n8",
+    "patientId": "p3",
+    "message": "✅ Treatment history updated: Root Canal on 10th July.",
+    "date": "2025-07-15"
+  },
+  {
+    "notificationId": "n9",
+    "patientId": "p3",
+    "message": "💬 Don't forget to brush twice a day!",
+    "date": "2025-07-14"
+  },
+
+  {
+    "notificationId": "n10",
+    "patientId": "p4",
+    "message": "📢 You have a dental visit reminder for 17th July at 3:00 PM.",
+    "date": "2025-07-16"
+  },
+  {
+    "notificationId": "n11",
+    "patientId": "p4",
+    "message": "🎉 Congrats! You've completed 5 clinic visits!",
+    "date": "2025-07-15"
+  },
+  {
+    "notificationId": "n12",
+    "patientId": "p4",
+    "message": "🦷 Dental tip: Use a soft-bristled toothbrush for better care.",
+    "date": "2025-07-14"
+  }
+]

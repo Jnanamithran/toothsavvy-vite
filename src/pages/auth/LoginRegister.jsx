@@ -54,7 +54,7 @@ const LoginRegister = () => {
         };
         localStorage.setItem('loggedInPatientId', newPatient.id);
         localStorage.setItem('newPatient', JSON.stringify(newPatient));
-        navigate('/patient/dashboard');
+        navigate('/patient-dashboard');
       }
     }
   };

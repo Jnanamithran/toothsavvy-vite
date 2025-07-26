@@ -1,16 +1,18 @@
-// Sidebar.component.jsx
-import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, Link, useLocation, Navigate } from 'react-router-dom';
 import './Sidebar.styles.css';
 import {
   FiActivity, FiUser, FiCalendar, FiFileText,
   FiSettings, FiClipboard, FiUsers, FiSearch,
-  FiLogOut, FiRepeat
+  FiLogOut, FiRepeat, FiMenu, FiX
 } from 'react-icons/fi';
 
 const Sidebar = ({ role = 'patient' }) => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleSidebar = () => setIsOpen(prev => !prev);
+  const closeSidebar = () => setIsOpen(false);
   const routes = {
     patient: [
       { label: 'Dashboard', path: '/patient-dashboard', icon: <FiActivity /> },
@@ -37,50 +39,65 @@ const Sidebar = ({ role = 'patient' }) => {
     ],
   };
 
-  // Conditionally show reschedule icon only on /reschedule path
   const showRescheduleIcon = location.pathname === '/reschedule';
 
   return (
-    <aside className="sidebar">
-      {/* Logo */}
-      <Link to="/" className="logo" title="Go to Home">
-        🦷
-      </Link>
+    <>
+      <button
+        className="sidebar-toggle"
+        onClick={toggleSidebar}
+        aria-label="Toggle Menu"
+      >
+        <FiMenu />
+      </button>
 
-      {/* Navigation Links */}
-      <nav className="sidebar-links">
-        {(routes[role] || []).map((route, index) => (
-          <NavLink
-            key={index}
-            to={route.path}
-            className={({ isActive }) =>
-              `sidebar-icon ${isActive ? 'active' : ''}`
-            }
-            title={route.label}
-          >
-            {route.icon}
-          </NavLink>
-        ))}
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+        {/* Close Button (only on small screens) */}
+        <button className="sidebar-close" onClick={closeSidebar}>
+          <FiX />
+        </button>
 
-        {/* Reschedule icon only if on /reschedule */}
-        {showRescheduleIcon && (
-          <NavLink
-            to="/reschedule"
-            className={({ isActive }) =>
-              `sidebar-icon ${isActive ? 'active' : ''}`
-            }
-            title="Reschedule Appointment"
-          >
-            <FiRepeat />
-          </NavLink>
-        )}
-      </nav>
+        {/* Logo */}
+        <Link to="/" className="logo">
+          🦷
+        </Link>
 
-      {/* Logout Icon at the Bottom */}
-      <div className="logout-button" title="Logout">
-        <FiLogOut />
-      </div>
-    </aside>
+        {/* Nav Links */}
+        <nav className="sidebar-links">
+          {(routes[role] || []).map((route, i) => (
+            <NavLink
+              key={i}
+              to={route.path}
+              className={({ isActive }) =>
+                `sidebar-item ${isActive ? 'active' : ''}`
+              }
+              onClick={closeSidebar}
+            >
+              <span className="sidebar-item-icon">{route.icon}</span>
+              <span className="sidebar-label">{route.label}</span>
+            </NavLink>
+          ))}
+
+          {showRescheduleIcon && (
+            <NavLink
+              to="/reschedule"
+              className={({ isActive }) =>
+                `sidebar-item ${isActive ? 'active' : ''}`
+              }
+              onClick={closeSidebar}
+            >
+              <span className="sidebar-item-icon"><FiRepeat /></span>
+              <span className="sidebar-label">Reschedule</span>
+            </NavLink>
+          )}
+        </nav>
+
+        {/* Logout */}
+        <div className="logout-button" title="Logout">
+          <FiLogOut />
+        </div>
+      </aside>
+    </>
   );
 };
 

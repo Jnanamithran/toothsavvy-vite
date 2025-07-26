@@ -1,33 +1,45 @@
-/* AppointmentHistory.css */
-
 .appointment-history {
   min-height: 100vh;
   width: 100vw;
   padding: 3rem 5vw;
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  background-color: #f9f9f9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .appointment-history h2 {
-  color: #1a237e;
-  font-size: 2.7rem;
-  margin-bottom: 2rem;
+  color: #004d66;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
   text-align: center;
+  position: relative;
+}
+
+.appointment-history h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #00bcd4;
+  border-radius: 2px;
+  margin: 0.75rem auto 0 auto;
 }
 
 .no-history {
   text-align: center;
-  color: #666;
-  font-size: 1.3rem;
-  background-color: #fff;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #555;
+  font-size: 1.25rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
 }
 
 .history-table {
@@ -37,67 +49,75 @@
   border-collapse: collapse;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
   font-size: 1.05rem;
+  transition: box-shadow 0.3s ease;
 }
 
 .history-table th,
 .history-table td {
-  padding: 1.2rem 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .history-table th {
-  background-color: #3f51b5;
+  background-color: #00bcd4;
   color: white;
   font-weight: 600;
   font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .history-table tr:hover {
-  background-color: #f3f3f3;
+  background-color: #f0faff;
 }
 
-/* Status tags */
+/* Status badges */
 .status {
-  padding: 0.5rem 0.9rem;
-  border-radius: 8px;
-  font-weight: bold;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
   text-transform: capitalize;
+  transition: background-color 0.3s;
 }
 
 .status.upcoming {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: #fff9c4;
+  color: #a08800;
 }
 
 .status.completed {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #c8e6c9;
+  color: #2e7d32;
 }
 
 .status.cancelled {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #ffcdd2;
+  color: #c62828;
 }
 
-/* Responsive */
+/* Responsive layout */
 @media (max-width: 768px) {
   .appointment-history {
     padding: 2rem 1rem;
   }
 
+  .appointment-history h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .history-table {
     font-size: 0.95rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
   }
 
   .history-table th,
   .history-table td {
-    padding: 0.8rem 0.5rem;
-  }
-
-  .appointment-history h2 {
-    font-size: 2.2rem;
+    padding: 1rem 0.5rem;
   }
 }

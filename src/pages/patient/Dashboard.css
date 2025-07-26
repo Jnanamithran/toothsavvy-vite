@@ -1,129 +1,414 @@
-/* Dashboard.css */
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-}
-
+/* Patient Dashboard: Clean Light Blue & White Theme with Sidebar Space */
 .patient-dashboard {
-  padding: 2rem;
-  max-width: 1300px;
-  margin: 0 auto;
+  /* 👇 TYPOGRAPHY ENHANCEMENTS 👇 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #424242; /* Default text color for readability */
+  /* -- End of Enhancements -- */
+
+  padding: 2rem 2rem 2rem calc(80px + 1rem); /* Left padding for narrow sidebar + content padding */
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 50%, #ffffff 100%);
+  position: relative;
 }
 
+.patient-dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(33, 150, 243, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Header Section */
 .dashboard-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .dashboard-header h1 {
-  font-size: 2.5rem;
-  color: #1a237e;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800; /* Extra-bold for impact */
+  color: #1976d2;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.025em; /* Slightly tighter for display text */
+  text-shadow: 0 2px 4px rgba(25, 118, 210, 0.1);
 }
 
 .dashboard-header p {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 1.3rem;
+  color: #1565c0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.005em; /* Slightly looser for readability */
 }
 
+/* Actions */
 .dashboard-actions {
-  text-align: center;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .dashboard-actions button {
-  margin: 0 1rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #3949ab;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #2196f3;
+  color: #ffffff;
+  border: 2px solid #2196f3;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em; /* Spacing for button text */
+}
+
+.dashboard-actions button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.dashboard-actions button:hover::before {
+  left: 100%;
 }
 
 .dashboard-actions button:hover {
-  background-color: #303f9f;
+  background: #1976d2;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.4);
+  border-color: #1976d2;
 }
 
+.dashboard-actions button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Responsive Grid That Fills Width */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-/* 🎯 This section now scrolls if content > 3 cards */
+/* Section Cards */
 .dashboard-section {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  max-height: 400px;              /* limit height */
-  overflow-y: auto;               /* scroll only when needed */
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid #e3f2fd;
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.1);
+  overflow: hidden;
+  max-height: 500px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
-/* Optional: Scrollbar customization */
-.dashboard-section::-webkit-scrollbar {
-  width: 6px;
+.dashboard-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #2196f3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
-.dashboard-section::-webkit-scrollbar-thumb {
-  background-color: #c5cae9;
-  border-radius: 8px;
+
+.dashboard-section:hover::before {
+  opacity: 1;
 }
-.dashboard-section::-webkit-scrollbar-track {
-  background-color: #e8eaf6;
+
+.dashboard-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(33, 150, 243, 0.15);
+  border-color: #bbdefb;
 }
 
 .dashboard-section h2 {
-  font-size: 1.4rem;
-  color: #283593;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  position: relative;
+  letter-spacing: -0.01em;
 }
 
+.dashboard-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #2196f3;
+  border-radius: 2px;
+}
+
+/* Scrollable Content */
+.dashboard-section > div:last-child,
+.dashboard-section > p:last-child {
+  overflow-y: auto;
+  max-height: 350px;
+  padding-right: 8px;
+}
+
+/* Inside Cards */
 .card {
-  background-color: #f4f6fc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid #5c6bc0;
-  border-radius: 8px;
+  background: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #e3f2fd;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #2196f3;
+  transition: width 0.3s ease;
+}
+
+.card:hover::before {
+  width: 6px;
+}
+
+.card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+  border-color: #bbdefb;
+  background: #fafafa;
+}
+
+.card p {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+  color: #424242;
+}
+
+.card p strong {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+/* Notification Cards */
+.card.notification {
+  background: #e3f2fd;
+  border-color: #bbdefb;
+}
+
+.card.notification:hover {
+  background: #bbdefb;
+}
+
+.card.notification::before {
+  background: #1976d2;
+}
+
+/* Buttons */
 .reschedule-button {
-  background-color: #ffb300;
+  background: #2196f3;
+  color: #ffffff;
   border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  margin-top: 1rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.reschedule-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.reschedule-button:hover::before {
+  left: 100%;
 }
 
 .reschedule-button:hover {
-  background-color: #ffa000;
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.4);
+}
+
+.reschedule-button:active {
+  transform: translateY(0);
 }
 
 .note-date {
-  font-size: 0.9rem;
-  color: #888;
+  font-size: 0.85rem;
+  color: #1565c0;
+  font-weight: 500;
 }
 
-/* Responsive Grid */
-@media (max-width: 1024px) {
+/* Enhanced Scrollbars */
+.dashboard-section > div:last-child::-webkit-scrollbar,
+.dashboard-section > p:last-child::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-section > div:last-child::-webkit-scrollbar-thumb,
+.dashboard-section > p:last-child::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.dashboard-section > div:last-child::-webkit-scrollbar-track,
+.dashboard-section > p:last-child::-webkit-scrollbar-track {
+  background: #e3f2fd;
+  border-radius: 10px;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .patient-dashboard {
+    padding-left: calc(70px + 1rem); /* Even smaller for medium screens */
+  }
+
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .patient-dashboard {
+    padding: 1.5rem 1rem; /* Remove sidebar space on mobile */
+  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .dashboard-section {
+    padding: 2rem 1.5rem;
+    max-height: 400px;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: center;
   }
 
   .dashboard-actions button {
-    display: block;
-    margin: 1rem auto;
+    width: 100%;
+    max-width: 320px;
+    padding: 1.2rem 2rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-header p {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+.dashboard-actions button:focus,
+.reschedule-button:focus {
+  outline: 3px solid rgba(33, 150, 243, 0.5);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dashboard-section {
+    border: 2px solid #1976d2;
+  }
+
+  .card {
+    border: 1px solid #1976d2;
   }
 }

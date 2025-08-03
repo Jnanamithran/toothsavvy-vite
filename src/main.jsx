@@ -7,7 +7,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/toothsavvy-vite/"> {/* <-- Add this line! */}
+    <BrowserRouter> {/* <-- Add this line! */}
       <App />
     </BrowserRouter>
   </React.StrictMode>,

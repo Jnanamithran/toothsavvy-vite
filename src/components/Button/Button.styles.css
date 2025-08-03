@@ -1,22 +1,416 @@
+/* --- Base Button Styles --- */
 .custom-button {
+  /* Merged properties from both snippets */
   background-color: #00BCD4;
   color: white;
-  padding: 12px 24px;
+  padding: 14px 20px; /* From first snippet */
+  margin: 0; /* From first snippet */
   border: none;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 16px; 
   font-family: 'Mulish', sans-serif;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  min-height: 48px; /* Touch-friendly minimum height */
+  line-height: 1.2;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  width: auto; /* From first snippet */
+  max-width: 280px; /* From first snippet */
 }
 
 .custom-button:hover {
   background-color: #0097a7;
-  transform: scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+}
+
+.custom-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.4);
+}
+
+.custom-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.4);
 }
 
 .custom-button:disabled {
   background-color: #cccccc;
+  color: #888888;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
+}
+
+.custom-button:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Large Desktop Styles (1400px+) --- */
+@media screen and (min-width: 1400px) {
+  .custom-button {
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 10px;
+    min-height: 56px;
+  }
+}
+
+/* --- Desktop Styles (1200px to 1399px) --- */
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
+  .custom-button {
+    padding: 14px 28px;
+    font-size: 17px;
+    border-radius: 9px;
+    min-height: 52px;
+  }
+}
+
+/* --- Large Tablet Styles (992px to 1199px) --- */
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .custom-button {
+    padding: 13px 26px;
+    font-size: 16px;
+    min-height: 50px;
+  }
+}
+
+/* --- Tablet Styles (768px to 991px) --- */
+@media screen and (max-width: 991px) {
+  .custom-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 48px;
+    border-radius: 8px;
+  }
+}
+
+/* --- Small Tablet/Large Mobile Styles (481px to 767px) --- */
+/* Merged media query from first snippet into this block */
+@media screen and (max-width: 767px) {
+  .custom-button {
+    padding: 10px 15px; /* Smaller padding on smaller screens */
+    font-size: 0.9em; /* Optional: reduce font size */
+    min-height: 50px;
+    border-radius: 8px;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  /* Full-width variant for mobile layouts */
+  .custom-button.full-width {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Mobile Styles (361px to 480px) --- */
+@media screen and (max-width: 480px) {
+  .custom-button {
+    padding: 14px 24px;
+    font-size: 16px;
+    min-height: 50px;
+    border-radius: 8px;
+    min-width: 140px;
+  }
+  
+  .custom-button.full-width {
+    width: 100%;
+    max-width: 350px;
+    padding: 16px 20px;
+  }
+  
+  /* Compact variant for space-constrained layouts */
+  .custom-button.compact {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 44px;
+    min-width: 100px;
+  }
+}
+
+/* --- Small Mobile Styles (320px to 360px) --- */
+@media screen and (max-width: 360px) {
+  .custom-button {
+    padding: 12px 20px;
+    font-size: 15px;
+    min-height: 48px;
+    border-radius: 6px;
+    min-width: 120px;
+  }
+  
+  .custom-button.full-width {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 16px;
+  }
+  
+  .custom-button.compact {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-height: 40px;
+    min-width: 80px;
+  }
+}
+
+/* --- Extra Small Mobile Styles (below 320px) --- */
+@media screen and (max-width: 319px) {
+  .custom-button {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 44px;
+    border-radius: 6px;
+    min-width: 100px;
+  }
+  
+  .custom-button.full-width {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 14px;
+  }
+  
+  .custom-button.compact {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-height: 36px;
+    min-width: 70px;
+  }
+}
+
+/* --- Button Size Variants --- */
+.custom-button.small {
+  padding: 8px 16px;
+  font-size: 14px;
+  min-height: 36px;
+  border-radius: 6px;
+}
+
+.custom-button.large {
+  padding: 16px 32px;
+  font-size: 18px;
+  min-height: 56px;
+  border-radius: 10px;
+}
+
+.custom-button.extra-large {
+  padding: 20px 40px;
+  font-size: 20px;
+  min-height: 64px;
+  border-radius: 12px;
+}
+
+/* --- Button Style Variants --- */
+.custom-button.outline {
+  background-color: transparent;
+  color: #00BCD4;
+  border: 2px solid #00BCD4;
+}
+
+.custom-button.outline:hover {
+  background-color: #00BCD4;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+}
+
+.custom-button.outline:disabled {
+  background-color: transparent;
+  color: #cccccc;
+  border-color: #cccccc;
+}
+
+.custom-button.ghost {
+  background-color: transparent;
+  color: #00BCD4;
+  border: none;
+  box-shadow: none;
+}
+
+.custom-button.ghost:hover {
+  background-color: rgba(0, 188, 212, 0.1);
+  color: #0097a7;
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.custom-button.secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.custom-button.secondary:hover {
+  background-color: #4b5563;
+}
+
+.custom-button.danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.custom-button.danger:hover {
+  background-color: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.custom-button.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.custom-button.success:hover {
+  background-color: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* --- Icon Button Styles --- */
+.custom-button.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-button.icon-only {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  min-width: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .custom-button.icon-only {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* --- Landscape Mobile Optimization --- */
+@media screen and (max-height: 500px) and (orientation: landscape) and (max-width: 767px) {
+  .custom-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+    border-radius: 6px;
+  }
+  
+  .custom-button.full-width {
+    max-width: 200px;
+  }
+  
+  .custom-button.compact {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 32px;
+  }
+}
+
+/* --- Touch Device Optimizations --- */
+@media (hover: none) and (pointer: coarse) {
+  .custom-button {
+    min-height: 48px; /* Ensure touch-friendly size */
+  }
+  
+  .custom-button:hover {
+    transform: none; /* Disable hover animations on touch devices */
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.2);
+  }
+  
+  .custom-button:active {
+    transform: scale(0.98);
+    background-color: #008a9a;
+  }
+  
+  .custom-button.outline:active {
+    background-color: #00BCD4;
+    color: white;
+  }
+  
+  .custom-button.small {
+    min-height: 44px; /* Maintain accessibility on touch devices */
+  }
+}
+
+/* --- High Contrast Mode Support --- */
+@media (prefers-contrast: high) {
+  .custom-button {
+    border: 2px solid #ffffff;
+  }
+  
+  .custom-button:focus {
+    outline: 3px solid #ffff00;
+    outline-offset: 2px;
+  }
+  
+  .custom-button:disabled {
+    background-color: #666666;
+    border-color: #666666;
+    color: #cccccc;
+  }
+}
+
+/* --- Reduced Motion Support --- */
+@media (prefers-reduced-motion: reduce) {
+  .custom-button {
+    transition: background-color 0.2s ease;
+  }
+  
+  .custom-button:hover,
+  .custom-button:active {
+    transform: none !important;
+  }
+}
+
+/* --- Print Styles --- */
+@media print {
+  .custom-button {
+    background-color: transparent !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+/* --- Loading State --- */
+.custom-button.loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.custom-button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: button-loading-spin 1s linear infinite;
+}
+
+@keyframes button-loading-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-button.loading::after {
+    animation: none;
+    border-top-color: #ffffff;
+  }
 }

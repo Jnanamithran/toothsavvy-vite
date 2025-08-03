@@ -1,77 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Mulish:wght@400;600&display=swap');
 
+/* --- Base Navigation Styles --- */
 .navigation {
-    position: fixed;
-    top: 0;
-    left: 10px;
-    right: 10px;
-    z-index: 1000;
-    padding-top: 25px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  min-height: 70px; /* Ensure consistent height */
 }
 
 .logo-container {
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Quicksand', sans-serif;
-    color: #00BCD4;
-    text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  color: #00BCD4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: font-size 0.3s ease;
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
+/* This container holds the main links like 'About' and 'Services' */
 .nav-links-container {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  /* On desktop, this is part of the flex layout. On mobile, it becomes the overlay. */
+}
+
+/* This container holds the buttons and icons on the far right */
+.nav-actions {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 15px;
+    flex-shrink: 0; /* Prevent actions from shrinking */
 }
 
 .nav-link {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    padding: 10px 0;
-    transition: color 0.3s ease;
-    font-family: 'Mulish', sans-serif;
-    cursor: pointer;
-}
-
-.nav-link.active {
-    color: brown;
-    font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  font-family: 'Mulish', sans-serif;
+  cursor: pointer;
+  background: none;
+  border: none;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .nav-link:hover {
-    color: #00BCD4;
+  color: #00BCD4;
 }
 
-.hero-buttons a {
-    font-family: 'Cantata One', serif;
-    text-decoration: none;
-    padding: 12px 24px;
-    margin-right: 15px;
-    font-size: 1rem;
+/* --- Button Styles --- */
+.btn {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
     border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
 
-.btn-primary {
+.sign-in {
+    background-color: #f0f8ff;
+    color: #00BCD4;
+    border-color: #00BCD4;
+}
+
+.sign-in:hover {
+    background-color: #e0f7fa;
+}
+
+.sign-up {
     background-color: #00BCD4;
-    color: #fff;
-    border: none;
+    color: white;
 }
 
-.btn-primary:hover {
+.sign-up:hover {
     background-color: #0097a7;
-    color: #fff;
 }
 
+.desktop-auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.mobile-auth-buttons {
+    display: none; /* Hidden by default, shown in mobile overlay */
+}
+
+/* --- Profile Dropdown Styles --- */
 .profile-dropdown {
   position: relative;
   display: inline-block;
@@ -83,7 +118,12 @@
   background: #f1f1f1;
   border-radius: 50%;
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.3s;
+  min-width: 44px; /* Ensure touch-friendly size */
+  min-height: 44px;
 }
 
 .profile-icon:hover {
@@ -92,24 +132,325 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 45px;
+  top: 55px;
   right: 0;
   background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  min-width: 150px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  overflow: hidden;
 }
 
 .dropdown-item {
-  padding: 10px 15px;
+  padding: 12px 20px;
   text-decoration: none;
   display: block;
   color: #333;
   cursor: pointer;
+  font-family: 'Mulish', sans-serif;
+  font-size: 15px;
+  min-height: 44px; /* Touch-friendly height */
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
+  color: #00BCD4;
+}
+
+/* --- Hamburger Menu (Hidden on Desktop) --- */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1005;
+  padding: 8px;
+  min-width: 44px; /* Touch-friendly size */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Tablet Styles (1200px to 901px) --- */
+@media screen and (max-width: 1200px) {
+  .navigation {
+    padding: 15px 30px;
+  }
+  
+  .nav-links-container {
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* --- Large Tablet Styles (900px to 769px) --- */
+@media screen and (max-width: 900px) {
+  .navigation {
+    padding: 15px 25px;
+  }
+
+  .logo-container {
+    font-size: 22px;
+  }
+
+  /* Hide the desktop links and show the hamburger menu */
+  .nav-links-container .nav-link {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: flex; /* Override the display: none */
+  }
+  
+  .desktop-auth-buttons {
+    display: none; /* Hide desktop buttons on mobile */
+  }
+
+  /* Style the slide-out menu itself */
+  .nav-links-container.active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+    
+  /* Re-show the links inside the active overlay */
+  .nav-links-container.active .nav-link {
+    display: block;
+    font-size: 22px;
+    padding: 15px 20px;
+  }
+
+  /* Show mobile auth buttons in the overlay */
+  .nav-links-container.active .mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+}
+
+/* --- Small Tablet/Large Mobile Styles (768px to 481px) --- */
+@media screen and (max-width: 768px) {
+  .navigation {
+    padding: 12px 20px;
+    min-height: 65px;
+  }
+
+  .logo-container {
+    font-size: 20px;
+  }
+
+  .nav-actions {
+    gap: 12px;
+  }
+
+  .profile-icon {
+    font-size: 1.4rem;
+    padding: 6px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .hamburger-menu {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .hamburger-menu svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Adjust mobile overlay for smaller screens */
+  .nav-links-container.active .nav-link {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
+
+  .nav-links-container.active {
+    gap: 25px;
+  }
+
+  /* Make dropdown menu responsive */
+  .dropdown-menu {
+    right: -10px;
+    min-width: 140px;
+  }
+
+  .dropdown-item {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 40px;
+  }
+}
+
+/* --- Mobile Styles (480px and below) --- */
+@media screen and (max-width: 480px) {
+  .navigation {
+    padding: 10px 15px;
+    min-height: 60px;
+  }
+
+  .logo-container {
+    font-size: 18px;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .profile-icon {
+    font-size: 1.3rem;
+    padding: 5px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .hamburger-menu {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 6px;
+  }
+
+  .hamburger-menu svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Mobile overlay adjustments */
+  .nav-links-container.active .nav-link {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  .nav-links-container.active {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav-links-container.active .mobile-auth-buttons {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .nav-links-container.active .mobile-auth-buttons .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  /* Dropdown adjustments for small screens */
+  .dropdown-menu {
+    right: -15px;
+    min-width: 120px;
+    left: auto;
+    transform: none;
+  }
+
+  .dropdown-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+}
+
+/* --- Extra Small Mobile Styles (360px and below) --- */
+@media screen and (max-width: 360px) {
+  .navigation {
+    padding: 8px 12px;
+  }
+
+  .logo-container {
+    font-size: 16px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .profile-icon {
+    font-size: 1.2rem;
+    padding: 4px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .hamburger-menu {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 4px;
+  }
+
+  .hamburger-menu svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-links-container.active .nav-link {
+    font-size: 16px;
+  }
+
+  .nav-links-container.active {
+    gap: 18px;
+    padding: 15px;
+  }
+
+  .dropdown-menu {
+    right: -20px;
+    min-width: 100px;
+  }
+}
+
+/* --- Landscape Mobile Optimization --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .nav-links-container.active {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .nav-links-container.active .nav-link {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .nav-links-container.active .mobile-auth-buttons {
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* --- High DPI Display Optimization --- */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .navigation {
+    border-bottom-width: 0.5px;
+  }
+  
+  .dropdown-menu {
+    border-width: 0.5px;
+  }
 }

@@ -46,32 +46,6 @@
   z-index: 1;
 }
 
-/* Overlay content on image */
-.image-side::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  max-width: 400px;
-  white-space: pre-line;
-}
-
-/* Style the heading part */
-.image-side::after {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* Create the heading effect using a pseudo-element */
-.image-side {
-  position: relative;
-}
-
 .image-side .overlay-content {
   position: absolute;
   top: 50%;
@@ -82,17 +56,19 @@
   text-align: center;
   padding: 2rem;
   max-width: 400px;
+  width: 90%;
 }
 
 .image-side .overlay-content h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .image-side .overlay-content p {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   line-height: 1.6;
   font-weight: 300;
   opacity: 0.95;
@@ -108,13 +84,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: clamp(1.5rem, 5vw, 3rem);
   background: #ffffff;
   position: relative;
+  overflow-y: auto;
 }
 
 .form-side h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 0.5rem;
@@ -125,7 +102,7 @@
   width: 100%;
   max-width: 400px;
   background: #ffffff;
-  padding: 2.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   border-radius: 1rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border: 1px solid #f3f4f6;
@@ -138,14 +115,15 @@
 
 .form-side input {
   width: 100%;
-  padding: 0.875rem 1rem;
+  padding: clamp(0.75rem, 2vw, 0.875rem) 1rem;
   margin-bottom: 1rem;
   border: 2px solid #e5e7eb;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   transition: all 0.3s ease;
   background: #ffffff;
   color: #374151;
+  min-height: 44px; /* Touch-friendly minimum */
 }
 
 .form-side input:focus {
@@ -160,16 +138,17 @@
 
 .form-side button {
   width: 100%;
-  padding: 0.875rem 1rem;
+  padding: clamp(0.75rem, 2vw, 0.875rem) 1rem;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   border: none;
   border-radius: 0.5rem;
   color: white;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
+  min-height: 44px; /* Touch-friendly minimum */
 }
 
 .form-side button:hover {
@@ -184,7 +163,7 @@
 /* Error message */
 .error-message {
   color: #ef4444;
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 2vw, 0.875rem);
   margin-bottom: 1rem;
   text-align: center;
   background: #fef2f2;
@@ -198,7 +177,7 @@
   margin-top: 1.5rem;
   text-align: center;
   color: #6b7280;
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 2vw, 0.875rem);
 }
 
 .form-side .form-container p a {
@@ -214,52 +193,111 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-  .login-register-container {
-    flex-direction: column;
-  }
-  
-  .image-side {
-    height: 40vh;
-    order: 2;
-  }
-  
-  .image-side .overlay-content h1 {
-    font-size: 2rem;
-  }
-  
-  .image-side .overlay-content p {
-    font-size: 1rem;
-  }
-  
+@media (max-width: 1024px) {
   .form-side {
-    padding: 2rem 1.5rem;
-    order: 1;
+    padding: 2rem;
   }
   
-  .form-side h2 {
-    font-size: 1.75rem;
+  .form-side .form-container {
+    max-width: 360px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .login-register-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  
   .image-side {
-    height: 30vh;
+    flex: none;
+    width: 100%;
+    height: 40vh;
+    min-height: 250px;
+    order: 1;
+  }
+  
+  .image-side .overlay-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+  
+  .form-side {
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+    order: 2;
+    padding: 2rem 1.5rem;
+    justify-content: flex-start;
+    padding-top: 3rem;
+  }
+  
+  .form-side .form-container {
+    max-width: 100%;
+    padding: 2rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .image-side {
+    height: 35vh;
+    min-height: 220px;
   }
   
   .image-side .overlay-content {
     padding: 1rem;
   }
   
-  .image-side .overlay-content h1 {
-    font-size: 1.5rem;
+  .form-side {
+    padding: 1.5rem 1rem;
+    padding-top: 2rem;
   }
   
-  .image-side .overlay-content p {
-    font-size: 0.9rem;
+  .form-side .form-container {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-register-container {
+    min-height: 100vh;
+  }
+  
+  .image-side {
+    height: 30vh;
+    min-height: 200px;
   }
   
   .form-side {
-    padding: 1.5rem 1rem;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    min-height: 70vh;
+  }
+  
+  .form-side .form-container {
+    padding: 1.25rem;
+  }
+  
+  .form-side input,
+  .form-side button {
+    padding: 0.875rem 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .form-side {
+    padding: 0.75rem;
+  }
+  
+  .form-side .form-container {
+    padding: 1rem;
   }
 }

@@ -1,15 +1,22 @@
-import './Navbar.styles.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, useNavigate, Outlet } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import Button from '../Button/Button.component';
+import './Navbar.styles.css';
+
+// Re-created Button component for a self-contained example
+const Button = ({ children, className, onClick }) => (
+  <button className={`btn ${className}`} onClick={onClick}>
+    {children}
+  </button>
+);
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Check login status on mount
+  // Check login status on component mount
   useEffect(() => {
     const patientId = localStorage.getItem('loggedInPatientId');
     setIsLoggedIn(!!patientId);
@@ -17,69 +24,101 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('loggedInPatientId');
-    setIsLoggedIn(false); // Update state
-    navigate('/'); // Redirect to home
+    setIsLoggedIn(false);
+    setShowProfileDropdown(false);
+    setIsMobileMenuOpen(false); // Close mobile menu on logout
+    navigate('/');
   };
 
   const handleAppointmentClick = () => {
+    setIsMobileMenuOpen(false); // Close menu on click
     if (isLoggedIn) {
       navigate('/book-appointment');
     } else {
-      alert('Please sign in to book an appointment.');
       navigate('/signin');
     }
   };
 
+  // This function ensures the mobile menu closes when a link is clicked
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setShowProfileDropdown(false);
+  };
+
+  const handleProfileDropdownLinkClick = (path) => {
+    handleLinkClick();
+    navigate(path);
+  }
+
   return (
     <>
       <nav className="navigation">
-        <ScrollLink className="logo-container" to="home" smooth={true} duration={500} offset={-80}>
+        <ScrollLink className="logo-container" to="home" smooth={true} duration={500} offset={-80} onClick={handleLinkClick}>
           ToothSavvy
         </ScrollLink>
 
-        <div className="nav-links-container">
-          <ScrollLink to="about" smooth={true} duration={500} offset={-80} className="nav-link">
+        {/* This container holds the links that will collapse into the hamburger menu */}
+        <div className={`nav-links-container ${isMobileMenuOpen ? 'active' : ''}`}>
+          <ScrollLink to="about" smooth={true} duration={500} offset={-80} className="nav-link" onClick={handleLinkClick}>
             About Us
           </ScrollLink>
-
-          <ScrollLink to="services" smooth={true} duration={500} offset={-80} className="nav-link">
+          <ScrollLink to="services" smooth={true} duration={500} offset={-80} className="nav-link" onClick={handleLinkClick}>
             Our Services
           </ScrollLink>
-
-          {/* Updated Appointment Link */}
           <div className="nav-link" onClick={handleAppointmentClick}>
             Appointment
           </div>
+           {/* These auth buttons are only for the mobile slide-out menu */}
+           {!isLoggedIn && (
+             <div className="mobile-auth-buttons">
+                <RouterLink className="nav-link" to="/signin" onClick={handleLinkClick}>
+                    <Button className="sign-in">Sign In</Button>
+                </RouterLink>
+                <RouterLink className="nav-link" to="/signup" onClick={handleLinkClick}>
+                    <Button className="sign-up">Sign Up</Button>
+                </RouterLink>
+             </div>
+           )}
+        </div>
 
-          {isLoggedIn ? (
+        {/* This container holds actions that are always visible or have separate responsive rules */}
+        <div className="nav-actions">
+           {isLoggedIn ? (
             <div className="profile-dropdown">
-              <div className="profile-icon" onClick={() => setShowDropdown(!showDropdown)}>
+              <div className="profile-icon" onClick={() => setShowProfileDropdown(!showProfileDropdown)}>
                 👤
               </div>
-              {showDropdown && (
+              {showProfileDropdown && (
                 <div className="dropdown-menu">
-                  <RouterLink to="/profile" className="dropdown-item" onClick={() => setShowDropdown(false)}>
+                  <div className="dropdown-item" onClick={() => handleProfileDropdownLinkClick('/profile')}>
                     Profile
-                  </RouterLink>
-                  <RouterLink to="/book-appointment" className="dropdown-item" onClick={() => setShowDropdown(false)}>
+                  </div>
+                  <div className="dropdown-item" onClick={() => handleProfileDropdownLinkClick('/book-appointment')}>
                     Appointments
-                  </RouterLink>
+                  </div>
                   <div className="dropdown-item" onClick={handleLogout}>
                     Logout
                   </div>
                 </div>
               )}
             </div>
-          ) : (
-            <>
-              <RouterLink className="nav-link" to="/signin">
-                <Button className="sign-in">Sign In</Button>
-              </RouterLink>
-              <RouterLink className="nav-link" to="/signup">
-                <Button className="sign-up">Sign Up</Button>
-              </RouterLink>
-            </>
-          )}
+           ) : (
+             <div className="desktop-auth-buttons">
+                <RouterLink className="nav-link" to="/signin">
+                    <Button className="sign-in">Sign In</Button>
+                </RouterLink>
+                <RouterLink className="nav-link" to="/signup">
+                    <Button className="sign-up">Sign Up</Button>
+                </RouterLink>
+             </div>
+           )}
+          <div className="hamburger-menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </div>
         </div>
       </nav>
 

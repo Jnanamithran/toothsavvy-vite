@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+// Assuming assets are in a relative path. Adjust if necessary.
 import dentalImage from '../../assets/dental-image.png';
 import Button from '../../components/Button/Button.component';
 import './Landing.css';
@@ -13,17 +14,19 @@ const Landing = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    // Check login status on mount
+    // Check login status on component mount
     useEffect(() => {
         const patientId = localStorage.getItem('loggedInPatientId');
         setIsLoggedIn(!!patientId);
     }, []);
 
+    // Handles the "Book Now" button click
     const handleBookNow = () => {
         if (isLoggedIn) {
             navigate('/book-appointment');
         } else {
-            alert('Please sign in to book an appointment.');
+            // Removed the alert for a better user experience,
+            // navigating directly to the sign-in page.
             navigate('/signin');
         }
     };
@@ -32,7 +35,12 @@ const Landing = () => {
         <section id="home">
             <div className="landing-container">
                 <div className="left">
-                    <img src={dentalImage} alt="Dental Clinic" />
+                    {/* Added a fallback for the image in case it fails to load */}
+                    <img 
+                        src={dentalImage} 
+                        alt="Smiling patient at a dental clinic" 
+                        onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/500x550/00bcd4/FFFFFF?text=ToothSavvy'; }}
+                    />
                 </div>
                 <div className="right">
                     <h1 className="hero-title">
@@ -57,6 +65,7 @@ const Landing = () => {
                 </div>
             </div>
 
+            {/* These sections are assumed to be components */}
             <div id="about">
                 <About />
             </div>

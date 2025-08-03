@@ -1,127 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Mulish:wght@400;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    
-}
-.service-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 200px;
-}
-.service-container h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: #4A4A4A;
-    font-family: 'Cantata One', serif;
-    margin-bottom: 50px;
-    text-align: center;
-    font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+.service-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-container h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #4A4A4A;
+  font-family: 'Cantata One', serif;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 90%;
+}
+
+/* GRID LAYOUT */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 70px;
-    max-width: 1050px;
-    width: 100%;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* default: single column */
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 3-column layout on desktop */
+@media screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .grid-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
+/* VERTICAL 9:16 CARD */
 .service {
-    position: relative;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16; /* Vertical card */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+/* Fallback for browsers without aspect-ratio */
+@supports not (aspect-ratio: 9 / 16) {
+  .service::before {
+    content: '';
+    display: block;
+    padding-top: 177.78%; /* 16 / 9 inverted */
+  }
+  .service > * {
+    position: absolute;
+    inset: 0;
+  }
 }
 
 .image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e0f2f7;
+  width: 100%;
+  height: 100%;
+  background-color: #e0f2f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.service:hover .image img {
+  transform: scale(1.05);
 }
 
 .service-content {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   text-align: center;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding: 0;
+  padding-bottom: 20px;
   background: transparent;
-}
-
-
-.service-content h1 {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  font-size: 15px;
-  color: white;
-  font-weight: 700;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 8px 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
 }
 
+.service-content h1 {
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Mulish', sans-serif;
+  transition: all 0.4s ease;
+}
 
 .service-content p {
   opacity: 0;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: 0.95rem;
   color: white;
-  line-height: 1.6;
-  max-width: 90%;
-  margin: 0;
-  padding: 0;
+  line-height: 1.5;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0 15px;
   transition: opacity 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .service:hover .service-content p {
@@ -129,18 +158,58 @@ body {
 }
 
 .service:hover .service-content {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   justify-content: center;
+  backdrop-filter: blur(2px);
 }
 
 .service:hover .service-content h1 {
-  position: static;
-  transform: none;
   background: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
-.service:hover .service-content p {
-    opacity: 1;
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+  .service:hover {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .service:hover .image img {
+    transform: none;
+  }
+
+  .service:active {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* High DPI display optimization */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+  .image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .service,
+  .image img,
+  .service-content,
+  .service-content h1,
+  .service-content p {
+    transition: none !important;
+  }
+
+  .service:hover {
+    transform: none !important;
+  }
+
+  .service:hover .image img {
+    transform: none !important;
+  }
 }

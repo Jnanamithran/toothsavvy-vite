@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
 
-
 .faq-container {
   max-width: 850px;
   margin: 40px auto;
-  padding-top: 80px;
+  padding: 80px 20px 40px;
   text-align: center;
 }
 
 .faq-container h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.8rem, 5vw, 3rem);
   color: #4A4A4A;
   font-family: 'Cantata One', serif;
-  margin-bottom: 50px;
+  margin-bottom: clamp(30px, 6vw, 50px);
   text-align: center;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .faq-item {
   border: 1px solid #ccc;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  padding: 20px 25px;
+  border-radius: clamp(8px, 2vw, 12px);
+  margin-bottom: clamp(15px, 3vw, 20px);
+  padding: clamp(15px, 4vw, 25px);
   background: #fff;
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
   cursor: pointer;
@@ -36,22 +36,80 @@
 }
 
 .faq-question {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
+  line-height: 1.3;
 }
 
 .faq-icon {
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
   color: #007BFF;
+  flex-shrink: 0;
 }
 
 .faq-answer {
-  margin-top: 15px;
+  margin-top: clamp(10px, 3vw, 15px);
   color: #444;
   line-height: 1.6;
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .faq-container {
+    margin: 20px auto;
+    padding: 60px 15px 30px;
+  }
+  
+  .faq-item {
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .faq-question {
+    gap: 12px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .faq-container {
+    padding: 40px 12px 20px;
+  }
+  
+  .faq-item {
+    padding: 15px 18px;
+    border-radius: 8px;
+  }
+  
+  .faq-question {
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .faq-icon {
+    margin-top: 2px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .faq-container {
+    max-width: 900px;
+    padding-top: 100px;
+  }
+  
+  .faq-item {
+    padding: 28px 30px;
+    margin-bottom: 25px;
+  }
 }

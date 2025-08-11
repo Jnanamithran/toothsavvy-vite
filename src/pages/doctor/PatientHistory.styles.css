@@ -1,0 +1,85 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Mulish:wght@400;600;700&display=swap');
+
+/* --- Main Container --- */
+.patient-history-container {
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: calc(100vh - 70px); /* Adjust based on navbar height */
+  font-family: 'Mulish', sans-serif;
+}
+
+.patient-history-header {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 24px;
+}
+
+/* --- History Card --- */
+.history-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* --- Search Bar --- */
+.search-bar {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #00BCD4;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+}
+
+/* --- History List --- */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #e9eef2;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item p {
+    margin: 0;
+}
+
+.history-patient-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.history-date {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.history-notes {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+}

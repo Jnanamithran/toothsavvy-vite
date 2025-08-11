@@ -163,15 +163,12 @@
 
 /* --- Hamburger Menu (Hidden on Desktop) --- */
 .hamburger-menu {
-  display: none;
+  display: none; /* ✅ FIX: Hide hamburger by default on large screens */
   cursor: pointer;
   z-index: 1005;
   padding: 8px;
   min-width: 44px; /* Touch-friendly size */
   min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -212,7 +209,7 @@
   }
   
   .hamburger-menu {
-    display: flex; /* Override the display: none */
+    display: flex; /* ✅ FIX: Show hamburger on smaller screens */
   }
   
   .desktop-auth-buttons {

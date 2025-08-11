@@ -1,0 +1,26 @@
+[
+  {
+    "id": "doc001",
+    "name": "Dr. Evelyn Reed",
+    "email": "doctor@clinic.com",
+    "password": "password123",
+    "specialty": "General Dentistry",
+    "avatar": "https://placehold.co/100x100/E2E8F0/4A5568?text=ER"
+  },
+  {
+    "id": "doc002",
+    "name": "Dr. Samuel Chen",
+    "email": "samuel.chen@clinic.com",
+    "password": "password123",
+    "specialty": "Orthodontics",
+    "avatar": "https://placehold.co/100x100/D4E2F4/3A4D6B?text=SC"
+  },
+  {
+    "id": "doc003",
+    "name": "Dr. Maria Garcia",
+    "email": "maria.garcia@clinic.com",
+    "password": "password123",
+    "specialty": "Pediatric Dentistry",
+    "avatar": "https://placehold.co/100x100/F4D4E2/6B3A4D?text=MG"
+  }
+]

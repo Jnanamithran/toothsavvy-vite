@@ -1,0 +1,102 @@
+/* Import Google Fonts for consistency with the rest of the app */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Mulish:wght@400;600;700&display=swap');
+
+/* Main container for the login page */
+.doctor-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7fafc; /* A light gray background */
+  font-family: 'Mulish', sans-serif;
+}
+
+/* The login card itself */
+.doctor-login-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Header section */
+.doctor-login-header h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748; /* A dark gray for text */
+  margin-bottom: 8px;
+}
+
+.doctor-login-header p {
+  color: #718096; /* A medium gray for the subtitle */
+  margin-bottom: 32px;
+}
+
+/* Form styling */
+.doctor-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00BCD4; /* Theme color for focus */
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+}
+
+/* Error message */
+.error-message {
+  color: #e53e3e; /* A standard red for errors */
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: -10px; /* Adjust spacing */
+  margin-bottom: 10px;
+}
+
+/* Submit button */
+.submit-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00BCD4; /* Theme color */
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #0097a7; /* A darker shade for hover */
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}

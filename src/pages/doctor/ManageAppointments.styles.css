@@ -1,0 +1,103 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Mulish:wght@400;600;700&display=swap');
+
+/* --- Main Container --- */
+.manage-appointments-container {
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: calc(100vh - 70px); /* Adjust based on navbar height */
+  font-family: 'Mulish', sans-serif;
+}
+
+.manage-appointments-header {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 24px;
+}
+
+/* --- Appointments List Card --- */
+.appointments-list-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- List Item --- */
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.appointment-item:last-child {
+  border-bottom: none;
+}
+
+.appointment-details p {
+  margin: 0;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.1rem;
+}
+
+.service-name {
+  color: #718096;
+}
+
+.appointment-time {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-top: 4px;
+}
+
+/* --- Action Buttons --- */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn {
+  background-color: #22c55e; /* Green */
+}
+
+.confirm-btn:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background-color: #ef4444; /* Red */
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}

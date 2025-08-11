@@ -1,0 +1,8 @@
+{
+  "checkupTemplates": [
+    { "id": "t01", "name": "Standard Cleaning" },
+    { "id": "t02", "name": "Cavity Filling" },
+    { "id": "t03", "name": "Wisdom Tooth Extraction" },
+    { "id": "t04", "name": "Root Canal Procedure" }
+  ]
+}

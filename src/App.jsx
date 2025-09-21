@@ -3,8 +3,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 // Layouts
-import PatientLayout from './layouts/PatientLayout';
-import DoctorLayout from './layouts/DoctorLayout';
+import PatientLayout from './layouts/patientLayout';
+import DoctorLayout from './layouts/doctorLayout';
 import Navbar from './components/Navbar/Navbar.component';
 
 // Guest Pages

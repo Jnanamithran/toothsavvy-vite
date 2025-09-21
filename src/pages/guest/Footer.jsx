@@ -49,7 +49,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="footer">
-      <h4 className="logo">Dental Care</h4>
+      <h4 className="logo">ToothSavvy</h4>
 
       <nav className="footer-links">
         {footerLinks.map(({ label, href }) => (

@@ -3,10 +3,13 @@
 
 /* Main container for the login page */
 .doctor-login-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f7fafc; /* A light gray background */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  min-height: 100vh; /* Take full viewport height */
+  width: 100vw; /* Take full viewport width */
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* A subtle gradient background */
+  padding: 20px; /* Add some padding for smaller screens */
   font-family: 'Mulish', sans-serif;
 }
 
@@ -14,9 +17,9 @@
 .doctor-login-card {
   width: 100%;
   max-width: 450px;
-  padding: 40px;
+  padding: 40px; /* Generous padding */
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px; /* Slightly larger border-radius for a softer look */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -25,7 +28,7 @@
 .doctor-login-header h1 {
   font-family: 'Quicksand', sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700; /* Bold title */
   color: #2d3748; /* A dark gray for text */
   margin-bottom: 8px;
 }
@@ -33,7 +36,7 @@
 .doctor-login-header p {
   color: #718096; /* A medium gray for the subtitle */
   margin-bottom: 32px;
-}
+} /* Increased bottom margin for better separation */
 
 /* Form styling */
 .doctor-login-form {
@@ -56,17 +59,17 @@
 
 .form-group input {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  padding: 12px 15px; /* Consistent padding */
+  border: 1px solid #cbd5e0; /* Slightly darker border for better contrast */
+  border-radius: 8px; /* Standard border-radius */
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #00BCD4; /* Theme color for focus */
-  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+  border-color: #00BCD4; /* Theme color for focus */ /* Keep theme color */
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.25); /* Slightly stronger shadow on focus */
 }
 
 /* Error message */
@@ -80,23 +83,42 @@
 
 /* Submit button */
 .submit-btn {
-  padding: 14px 20px;
+  padding: 14px 20px; /* Generous padding for button */
   border: none;
   border-radius: 8px;
   background-color: #00BCD4; /* Theme color */
   color: white;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 700; /* Bold text */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 16px;
 }
 
 .submit-btn:hover {
-  background-color: #0097a7; /* A darker shade for hover */
+  background-color: #0097a7; /* Darker shade for hover */
   transform: translateY(-2px);
 }
 
 .submit-btn:active {
     transform: translateY(0);
+}
+
+/* Patient login link */
+.patient-login-link {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.patient-login-link a {
+  color: #00BCD4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.patient-login-link a:hover {
+  color: #0097a7;
+  text-decoration: underline;
 }

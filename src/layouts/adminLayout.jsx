@@ -1,16 +1,16 @@
 // src/layouts/AdminLayout.jsx
 import React from 'react';
-import Sidebar from '../components/Sidebar/Sidebar.component';
 import { Outlet } from 'react-router-dom';
-import '../pages/admin/Dashboard.css'; // Optional styling
+import Sidebar from '../components/Sidebar/Sidebar.component';
+import './Layout.css';
 
 const AdminLayout = () => {
   return (
-    <div className="profile-layout">
+    <div className="layout-container">
       <Sidebar role="admin" />
-      <div className="profile-content">
+      <main className="main-content">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 };

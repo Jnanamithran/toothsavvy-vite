@@ -1,0 +1,19 @@
+/* src/layouts/Layout.css */
+.layout-container {
+  display: flex;
+  height: 100%;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding-left: 80px; /* Matches --sidebar-width-collapsed */
+  transition: padding-left 0.3s ease;
+  background-color: #f1f5f9; /* A slightly darker gray for better contrast */
+  overflow-y: auto; /* Allow content to scroll */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0; /* No padding on mobile as sidebar is off-canvas */
+  }
+}

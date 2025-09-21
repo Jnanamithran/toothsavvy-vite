@@ -1,14 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar/Sidebar.component';
+import './Layout.css';
 
 const DoctorLayout = () => {
   return (
-    <div className="doctor-layout">
-      {/* The Sidebar will now show doctor-specific links */}
+    <div className="layout-container">
       <Sidebar role="doctor" />
-
-      <main className="doctor-main-content">
+      <main className="main-content">
         <Outlet />
       </main>
     </div>

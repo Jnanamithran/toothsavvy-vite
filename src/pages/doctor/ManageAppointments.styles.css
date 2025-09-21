@@ -3,9 +3,7 @@
 
 /* --- Main Container --- */
 .manage-appointments-container {
-  padding: 24px;
-  background-color: #f9fafb;
-  min-height: calc(100vh - 70px); /* Adjust based on navbar height */
+  padding: 24px max(24px, calc((100% - 1536px) / 2));
   font-family: 'Mulish', sans-serif;
 }
 

@@ -3,9 +3,7 @@
 
 /* --- Main Dashboard Container --- */
 .dashboard-container {
-  padding: 24px;
-  background-color: #f9fafb; /* A very light background for the whole page */
-  min-height: calc(100vh - 70px); /* Adjust based on your navbar height */
+  padding: 24px max(24px, calc((100% - 1536px) / 2));
   font-family: 'Mulish', sans-serif;
 }
 
@@ -65,6 +63,94 @@
   color: #ca8a04;
 }
 
+/* --- Section Title (for appointments, etc.) --- */
+.section-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #1a202c;
+  margin-top: 48px; /* Space above the new section */
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* --- Appointments List Card --- */
+.appointments-list-card {
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8px;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.appointment-item:not(:last-child) {
+  border-bottom: 1px solid #f1f5f9; /* very light separator */
+}
+
+.appointment-item:hover {
+  background-color: #f8fafc;
+}
+
+.appointment-details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.appointment-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  /* In a real app, this would be an <img> */
+}
+
+.appointment-info p {
+  margin: 0;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.05rem;
+}
+
+.service-name {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.appointment-time {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a202c;
+  text-align: right;
+}
+
 /* --- Responsive Design --- */
 /* For tablets and larger screens */
 @media (min-width: 768px) {
@@ -73,6 +159,6 @@
   }
 
   .dashboard-container {
-    padding: 40px;
+    padding: 40px max(40px, calc((100% - 1536px) / 2));
   }
 }

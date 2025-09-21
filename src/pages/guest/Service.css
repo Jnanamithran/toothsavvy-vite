@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Mulish:wght@400;600;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Mulish', sans-serif;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
 .service-container {
   display: flex;
   flex-direction: column;

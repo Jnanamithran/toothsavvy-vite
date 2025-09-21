@@ -8,7 +8,7 @@ import './Landing.css';
 import About from "./About";
 import Service from "./Service";
 import FAQ from "./Faq";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 const Landing = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
